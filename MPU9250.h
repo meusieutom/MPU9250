@@ -2,9 +2,9 @@
 #ifndef MPU9250_H
 #define MPU9250_H
 
-#ifdef TEENSYDUINO
-#include <i2c_t3.h>
-#else
+#ifdef _ESP32_HAL_I2C_H_
+#define SDA_PIN 26
+#define SCL_PIN 25
 #include <Wire.h>
 #endif
 

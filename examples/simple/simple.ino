@@ -5,7 +5,8 @@ MPU9250 mpu;
 void setup()
 {
     Serial.begin(115200);
-
+  Wire.begin(26, 25); //sda, scl
+  mpu.setWire(&Wire);
     Wire.begin();
 
     delay(2000);

@@ -2,10 +2,9 @@
 #ifndef MPU9250_H
 #define MPU9250_H
 
-#ifdef _ESP32_HAL_I2C_H_
-#define SDA_PIN 26
-#define SCL_PIN 25
-#include <Arduino.h>
+#ifdef TEENSYDUINO
+#include <i2c_t3.h>
+#else
 #include <Wire.h>
 #endif
 
@@ -841,7 +840,9 @@ private:
 
 };
 
-#ifdef _ESP32_HAL_I2C_H_
+#ifdef TEENSYDUINO
+using MPU9250 = MPU9250_<i2c_t3>;
+#else
 using MPU9250 = MPU9250_<TwoWire>;
 #endif
 
